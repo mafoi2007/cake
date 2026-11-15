@@ -18,7 +18,12 @@ class RegionsController extends AppController
     public function index()
     {
         $query = $this->Regions->find();
-        $regions = $this->paginate($query);
+        $regions = $this->paginate($query, [
+            'limit' => 5,
+            'order' => [
+                'Regions.french_region_name' => 'asc',
+            ],
+        ]);
 
         $this->set(compact('regions'));
     }

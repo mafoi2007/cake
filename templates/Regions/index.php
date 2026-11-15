@@ -11,22 +11,18 @@
         <table>
             <thead>
                 <tr>
-                    <th><?= $this->Paginator->sort('id') ?></th>
+                    <th><?= $this->Paginator->sort('n°') ?></th>
                     <th><?= $this->Paginator->sort('french_region_name') ?></th>
                     <th><?= $this->Paginator->sort('english_region_name') ?></th>
-                    <th><?= $this->Paginator->sort('created') ?></th>
-                    <th><?= $this->Paginator->sort('modified') ?></th>
                     <th class="actions"><?= __('Actions') ?></th>
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ($regions as $region): ?>
+                <?php $i = 1; foreach ($regions as $region): ?>
                 <tr>
-                    <td><?= $this->Number->format($region->id) ?></td>
+                    <td><?= $i; ?></td>
                     <td><?= h($region->french_region_name) ?></td>
                     <td><?= h($region->english_region_name) ?></td>
-                    <td><?= h($region->created) ?></td>
-                    <td><?= h($region->modified) ?></td>
                     <td class="actions">
                         <?= $this->Html->link(__('View'), ['action' => 'view', $region->id]) ?>
                         <?= $this->Html->link(__('Edit'), ['action' => 'edit', $region->id]) ?>
@@ -40,7 +36,7 @@
                         ) ?>
                     </td>
                 </tr>
-                <?php endforeach; ?>
+                <?php $i++; endforeach; ?>
             </tbody>
         </table>
     </div>
